@@ -1,0 +1,254 @@
+{
+    "wave": [
+      {
+        "enemyName": "standard",
+        "count": 10,
+        "rate": 2
+      },
+      {
+        "enemyName": "slow",
+        "count": 5,
+        "rate": 1
+      },
+      {
+        "enemyName": "fast",
+        "count": 5,
+        "rate": 1.5
+      },
+      {
+        "enemyName": "standard",
+        "count": 12,
+        "rate": 3
+      },
+      {
+        "enemyName": "fast",
+        "count": 9,
+        "rate": 2
+      },
+      {
+        "enemyName": "standard",
+        "count": 18,
+        "rate": 4
+      },
+      {
+        "enemyName": "slow",
+        "count": 10,
+        "rate": 3
+      },
+      {
+        "enemyName": "fast",
+        "count": 12,
+        "rate": 4
+      },
+      {
+        "enemyName": "standard",
+        "count": 25,
+        "rate": 5
+      },
+      {
+        "enemyName": "standard",
+        "count": 30,
+        "rate": 8
+      },
+      {
+        "enemyName": "fast",
+        "count": 20,
+        "rate": 5
+      },
+      {
+        "enemyName": "slow",
+        "count": 25,
+        "rate": 6
+      },
+      {
+        "enemyName": "fast",
+        "count": 30,
+        "rate": 7
+      },
+      {
+        "enemyName": "standard",
+        "count": 50,
+        "rate": 6
+      },
+      {
+        "enemyName": "standard",
+        "count": 60,
+        "rate": 8
+      },
+      {
+        "enemyName": "slow",
+        "count": 28,
+        "rate": 6
+      },
+      {
+        "enemyName": "fast",
+        "count": 25,
+        "rate": 10
+      },
+      {
+        "enemyName": "standard",
+        "count": 60,
+        "rate": 10
+      },
+      {
+        "enemyName": "fast",
+        "count": 30,
+        "rate": 8
+      },
+      {
+        "enemyName": "standard",
+        "count": 70,
+        "rate": 11
+      },
+      {
+        "enemyName": "slow",
+        "count": 30,
+        "rate": 8
+      },
+      {
+        "enemyName": "fast",
+        "count": 40,
+        "rate": 10
+      },
+      {
+        "enemyName": "standard",
+        "count": 80,
+        "rate": 15
+      },
+      {
+        "enemyName": "fast",
+        "count": 40,
+        "rate": 10
+      },
+      {
+        "enemyName": "slow",
+        "count": 40,
+        "rate": 10
+      },
+      {
+        "enemyName": "standard",
+        "count": 100,
+        "rate": 15
+      },
+      {
+        "enemyName": "fast",
+        "count": 50,
+        "rate": 10
+      },
+      {
+        "enemyName": "slow",
+        "count": 50,
+        "rate": 12
+      },
+      {
+        "enemyName": "fast",
+        "count": 60,
+        "rate": 10
+      },
+      {
+        "enemyName": "standard",
+        "count": 100,
+        "rate": 20
+      },
+      {
+        "enemyName": "fast",
+        "count": 35,
+        "rate": 8
+      },
+      {
+        "enemyName": "slow",
+        "count": 50,
+        "rate": 15
+      },
+      {
+        "enemyName": "fast",
+        "count": 40,
+        "rate": 15
+      },
+      {
+        "enemyName": "standard",
+        "count": 150,
+        "rate": 25
+      },
+      {
+        "enemyName": "slow",
+        "count": 50,
+        "rate": 18
+      },
+      {
+        "enemyName": "fast",
+        "count": 30,
+        "rate": 15
+      },
+      {
+        "enemyName": "slow",
+        "count": 60,
+        "rate": 20
+      },
+      {
+        "enemyName": "standard",
+        "count": 160,
+        "rate": 25
+      },
+      {
+        "enemyName": "fast",
+        "count": 60,
+        "rate": 15
+      },
+      {
+        "enemyName": "fast",
+        "count": 70,
+        "rate": 15
+      },
+      {
+        "enemyName": "standard",
+        "count": 200,
+        "rate": 30
+      },
+      {
+        "enemyName": "slow",
+        "count": 60,
+        "rate": 20
+      },
+      {
+        "enemyName": "fast",
+        "count": 90,
+        "rate": 20
+      },
+      {
+        "enemyName": "standard",
+        "count": 220,
+        "rate": 30
+      },
+      {
+        "enemyName": "standard",
+        "count": 200,
+        "rate": 45
+      },
+      {
+        "enemyName": "fast",
+        "count": 100,
+        "rate": 20
+      },
+      {
+        "enemyName": "slow",
+        "count": 100,
+        "rate": 20
+      },
+      {
+        "enemyName": "standard",
+        "count": 250,
+        "rate": 35
+      },
+      {
+        "enemyName": "slow",
+        "count": 250,
+        "rate": 35
+      },
+      {
+        "enemyName": "fast",
+        "count": 250,
+        "rate": 35
+      }
+    ]
+  }
