@@ -45,14 +45,14 @@ public class GameManager : MonoBehaviour
 
     private void EndGame()
     {
-        PlayerStats.wavesFinishedCount = wave;
+        PlayerStats.wavesFinishedCount = wave - 1;
         gameOverUI.SetActive(true);
         gameIsOver = true;
     }
 
     public void WinLevel()
     {
-        PlayerStats.wavesFinishedCount = wave;
+        PlayerStats.wavesFinishedCount = wave - 1;
         Debug.Log("Plus de waves, c'est gagné");
 
         if (PlayerPrefs.GetInt("levelReached",1) < levelToUnlock)
