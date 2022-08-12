@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     public void WinLevel()
     {
-        PlayerStats.wavesFinishedCount = wave - 1;
+        PlayerStats.wavesFinishedCount = wave;
         Debug.Log("Plus de waves, c'est gagné");
 
         if (PlayerPrefs.GetInt("levelReached",1) < levelToUnlock)
