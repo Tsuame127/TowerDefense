@@ -4,13 +4,12 @@ using UnityEngine.UI;
 
 public class LevelSelector : MonoBehaviour
 {
-    public Button[] levelButtons;
+    [SerializeField]
+    private Button[] levelButtons;
 
     private void Start()
     {
         int levelReached = PlayerPrefs.GetInt("levelReached", 1);
-
-
 
         for (int i = 0; i < levelButtons.Length; i++)
         {
@@ -21,8 +20,5 @@ public class LevelSelector : MonoBehaviour
         }
     }
 
-    public void Select(string LevelName)
-    {
-        SceneManager.LoadScene(LevelName);
-    }
+    public void Select(string LevelName) { SceneManager.LoadScene(LevelName); }
 }

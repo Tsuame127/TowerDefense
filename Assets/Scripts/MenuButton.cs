@@ -5,8 +5,9 @@ using UnityEngine.Animations;
 
 public class MenuButton : MonoBehaviour
 {
-    MainMenu mainMenu;
-    public Animator animator;
+    private MainMenu mainMenu;
+    [SerializeField]
+    private Animator animator;
 
     private void Start()
     {
@@ -49,8 +50,5 @@ public class MenuButton : MonoBehaviour
         animator.SetTrigger("Hover");
     }
 
-    private void OnMouseExit()
-    {
-        animator.SetTrigger("Exit");
-    }
+    private void OnMouseExit() { animator.SetTrigger("Exit"); }
 }

@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class LivesUI : MonoBehaviour
 {
-    public Text livesRemainingText;
+    [SerializeField]
+    private Text livesRemainingText;
 
     void Update()
     {

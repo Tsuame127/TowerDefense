@@ -2,17 +2,19 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [Header("Stats")]
+    [SerializeField]
+    private float speed = 70f;
+    [SerializeField]
+    private float explosionRadius = 0f;
+    [SerializeField]
+    private int damage = 50;
+
+    [Header("UI")]
+    public GameObject impactEffect;
 
     private Transform target;
-    public float speed = 70f;
-    public GameObject impactEffect;
-    public float explosionRadius = 0f;
-    public int damage = 50;
 
-    public void SetTarget(Transform _target)
-    {
-        target = _target;
-    }
 
     void Update()
     {
@@ -46,7 +48,7 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-            Damage(target);
+            Damage(target, damage * 2/3);
         }
 
         Destroy(gameObject);
@@ -59,18 +61,18 @@ public class Bullet : MonoBehaviour
         {
             if (collider.CompareTag("Enemy"))
             {
-                Damage(collider.transform);
+                Damage(collider.transform, damage);
             }
         }
     }
 
-    void Damage(Transform target)
+    void Damage(Transform target, int _damage)
     {
-        Enemy enemy = target.GetComponent<Enemy>();
+        target.TryGetComponent<Enemy>(out Enemy enemy);
 
         if (enemy != null)
         {
-            enemy.TakeDamage(damage);
+            enemy.TakeDamage(_damage);
         }
         else
         {
@@ -78,9 +80,14 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    //Accessors
+    public void SetTarget(Transform _target) { target = _target; }
+
+    //RemoveAfterRelease
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
+
 }

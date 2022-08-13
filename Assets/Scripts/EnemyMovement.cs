@@ -5,28 +5,28 @@ using UnityEngine;
 [RequireComponent(typeof(Enemy))]
 public class EnemyMovement : MonoBehaviour
 {
-    private Enemy enemy;
     private int wayPointIndex = 0;
-    private Transform target;
+    private Enemy enemy;
+    private Transform nextWayPoint;
 
     void Start()
     {
         enemy = GetComponent<Enemy>();
-        target = WayPoints.points[0];
+        nextWayPoint = WayPoints.points[0];
     }
 
     private void Update()
     {
-        Vector3 dir = this.target.position - transform.position;
+        Vector3 dir = this.nextWayPoint.position - transform.position;
 
-        transform.Translate(dir.normalized * enemy.speed * Time.deltaTime, Space.World);
+        transform.Translate(enemy.GetSpeed() * Time.deltaTime * dir.normalized, Space.World);
 
-        if (Vector3.Distance(this.transform.position, this.target.transform.position) <= 0.4f)
+        if (Vector3.Distance(this.transform.position, this.nextWayPoint.transform.position) <= 0.4f)
         {
             this.GetNextWayPoint();
         }
 
-        enemy.speed = enemy.defaultSpeed;
+        enemy.SetSpeed(enemy.GetDefaultSpeed());
     }
 
     private void GetNextWayPoint()
@@ -38,7 +38,7 @@ public class EnemyMovement : MonoBehaviour
         else
         {
             this.wayPointIndex++;
-            this.target = WayPoints.points[wayPointIndex];
+            this.nextWayPoint = WayPoints.points[wayPointIndex];
         }
     }
 

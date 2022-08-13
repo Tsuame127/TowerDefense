@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
@@ -18,18 +16,20 @@ public class BuildManager : MonoBehaviour
     }
     #endregion
 
+    private TurretBluePrint turretToBuild;
+    private Node selectedNode;
+
+    [SerializeField]
+    private NodeUI nodeUI;
+    public bool CanBuild { get { return turretToBuild != null; } }
+    public bool HasEnoughMoney { get { return PlayerStats.money >= turretToBuild.cost; } }
+
+
     private void Start()
     {
         turretToBuild = null;
         selectedNode = null;
     }
-
-    private TurretBluePrint turretToBuild;
-    public Node selectedNode;
-    public NodeUI nodeUI;
-
-    public bool CanBuild { get { return turretToBuild != null; } }
-    public bool HasEnoughMoney { get { return PlayerStats.money >= turretToBuild.cost; } }
 
 
     public bool IsBuilding()
@@ -37,15 +37,13 @@ public class BuildManager : MonoBehaviour
         return ((turretToBuild != null) || (selectedNode != null));
     }
 
-    public TurretBluePrint GetTurretToBuild()
-    {
-        return turretToBuild;
-    }
+
     public void SelectTurretToBuild(TurretBluePrint turret)
     {
         turretToBuild = turret;
         DeselectNode();
     }
+
 
     public void SelectNode(Node node)
     {
@@ -54,11 +52,13 @@ public class BuildManager : MonoBehaviour
             DeselectNode();
             return;
         }
+
         selectedNode = node;
         turretToBuild = null;
 
         nodeUI.SetTarget(node);
     }
+
 
     public void DeselectNode()
     {
@@ -66,7 +66,7 @@ public class BuildManager : MonoBehaviour
         nodeUI.Hide();
     }
 
-    private void Update()
-    {
-    }
+
+    //Accessors
+    public TurretBluePrint GetTurretToBuild() { return turretToBuild; }
 }

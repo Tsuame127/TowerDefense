@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class WaveCountingUI : MonoBehaviour
 {
-    public Text waveCoutingText;
+    [SerializeField]
+    private Text waveCoutingText;
     void Update()
     {
         waveCoutingText.text = (WaveSpawner.waveIndex) + " / " + GameManager.maxWaves;

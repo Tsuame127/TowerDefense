@@ -8,6 +8,8 @@ public class Turret : MonoBehaviour
     public float range = 15f;
     private Transform target;
     private Enemy enemyTarget;
+    [SerializeField]
+    private GameObject turretRangeCylinder;
 
     [Header("Use Bullets (default)")]
     public GameObject bulletPrefab;
@@ -27,16 +29,15 @@ public class Turret : MonoBehaviour
     public string enemyTag = "Enemy";
     public float turnSpeed = 15f;
 
-
-    public GameObject turretRangeCylinder;
+    
 
     void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.1f);
+        InvokeRepeating(nameof(UpdateTarget), 0f, 0.1f);
         turretRangeCylinder.SetActive(false);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (turretRangeCylinder.activeSelf)
@@ -95,8 +96,7 @@ public class Turret : MonoBehaviour
         lineRenderer.SetPosition(1, target.position);
 
         Vector3 dir = firePoint.position - target.position;
-        impactEffect.transform.rotation = Quaternion.LookRotation(dir);
-        impactEffect.transform.position = target.position + dir.normalized;
+        impactEffect.transform.SetPositionAndRotation(target.position + dir.normalized, Quaternion.LookRotation(dir));
     }
 
     void UpdateTarget()
@@ -131,7 +131,8 @@ public class Turret : MonoBehaviour
     private void Shoot()
     {
         GameObject bulletCreated = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Bullet bullet = bulletCreated.GetComponent<Bullet>();
+
+        bulletCreated.TryGetComponent<Bullet>(out Bullet bullet);
 
         if (bullet == null)
         {
@@ -141,19 +142,14 @@ public class Turret : MonoBehaviour
         bullet.SetTarget(this.target);
     }
 
+
+    public void HideRange() { turretRangeCylinder.SetActive(false); }
+    public void ShowRange() { turretRangeCylinder.SetActive(true); }
+
+    //RemoveAfterRelease
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, range);
-    }
-
-    public void HideRange()
-    {
-        turretRangeCylinder.SetActive(false);
-    }
-
-    public void ShowRange()
-    {
-        turretRangeCylinder.SetActive(true);
     }
 }

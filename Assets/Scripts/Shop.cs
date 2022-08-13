@@ -4,17 +4,30 @@ using UnityEngine.UI;
 public class Shop : MonoBehaviour
 {
     private BuildManager buildManager;
-    public TurretBluePrint standardTurret;
-    public TurretBluePrint missileLauncherTurret;
-    public TurretBluePrint laserBeamerTurret;
 
-    public Button standTurretButton;
-    public Button missileTurretButton;
-    public Button laserTurretButton;
+    [Header("Blueprints")]
+    [SerializeField]
+    private TurretBluePrint standardTurret;
+    [SerializeField]
+    private TurretBluePrint missileLauncherTurret;
+    [SerializeField]
+    private TurretBluePrint laserBeamerTurret;
 
-    public Text standardTurretText;
-    public Text missileTurretText;
-    public Text laserTurretText;
+    [Header("Buttons")]
+    [SerializeField]
+    private Button standTurretButton;
+    [SerializeField]
+    private Button missileTurretButton;
+    [SerializeField]
+    private Button laserTurretButton;
+
+    [Header("Price Texts")]
+    [SerializeField]
+    private Text standardTurretText;
+    [SerializeField]
+    private Text missileTurretText;
+    [SerializeField]
+    private Text laserTurretText;
 
 
     private void Start()
@@ -27,20 +40,11 @@ public class Shop : MonoBehaviour
     }
     
 
-    public void SelectStandardTurret()
-    {
-        buildManager.SelectTurretToBuild(standardTurret);
-    }
+    public void SelectStandardTurret() { buildManager.SelectTurretToBuild(standardTurret); }
 
-    public void SelectMissileLauncher()
-    {
-        buildManager.SelectTurretToBuild(missileLauncherTurret);
-    }
+    public void SelectMissileLauncher() { buildManager.SelectTurretToBuild(missileLauncherTurret); }
 
-    public void SelectLaserBeamer()
-    {
-        buildManager.SelectTurretToBuild(laserBeamerTurret);
-    }
+    public void SelectLaserBeamer() { buildManager.SelectTurretToBuild(laserBeamerTurret); }
 
     private void Update()
     {

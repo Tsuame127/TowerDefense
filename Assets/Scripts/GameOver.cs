@@ -4,20 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    public Text wavesText;
+    [SerializeField]
+    private Text wavesText;
 
-    private void OnEnable()
-    {
-        wavesText.text = PlayerStats.wavesFinishedCount.ToString();
-    }
+    private void OnEnable() { wavesText.text = PlayerStats.wavesFinishedCount.ToString(); }
 
-    public void Retry()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
-    }
-    public void Menu()
-    {
-        SceneManager.LoadScene("LevelSelect");
-    }
+    public void Retry() { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
+    public void GoToMenu() { SceneManager.LoadScene("LevelSelect"); }
 }

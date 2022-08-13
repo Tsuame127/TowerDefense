@@ -5,15 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
     public static bool gameIsOver;
 
-    public GameObject gameOverUI;
+    [Header("Map Properties")]
+    [SerializeField]
+    private int levelToUnlock = 2;
+    public static int maxWaves = 50;
+    private static int wave;
+
+    [Header("UI")]
+    [SerializeField]
+    private GameObject gameOverUI;
+    [SerializeField]
     public GameObject levelCompletedUI;
 
-    public static int maxWaves = 50;
-    public static int wave;
-    public int levelToUnlock = 2;
 
     private void Start()
     {
@@ -24,7 +29,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
-            EndGame();
+            LoseLevel();
         }
 
         if (gameIsOver)
@@ -34,32 +39,33 @@ public class GameManager : MonoBehaviour
 
         if (PlayerStats.lives <= 0)
         {
-            this.EndGame();
+            this.LoseLevel();
         }
     }
 
-    public void UpdateWave(int waveIndex)
+    public void UpdateWave(int waveIndex) { wave = waveIndex; }
+
+    public void WinLevel()
     {
-        wave = waveIndex;
+        if (!gameIsOver)
+        {
+            PlayerStats.wavesFinishedCount = wave;
+            Debug.Log("Plus de waves, c'est gagné");
+
+            if (PlayerPrefs.GetInt("levelReached", 1) < levelToUnlock)
+            {
+                PlayerPrefs.SetInt("levelReached", levelToUnlock);
+            }
+
+            levelCompletedUI.SetActive(true);
+            gameIsOver = true;
+        }
     }
 
-    private void EndGame()
+    private void LoseLevel()
     {
         PlayerStats.wavesFinishedCount = wave - 1;
         gameOverUI.SetActive(true);
         gameIsOver = true;
-    }
-
-    public void WinLevel()
-    {
-        PlayerStats.wavesFinishedCount = wave;
-        Debug.Log("Plus de waves, c'est gagné");
-
-        if (PlayerPrefs.GetInt("levelReached",1) < levelToUnlock)
-        {
-            PlayerPrefs.SetInt("levelReached", levelToUnlock);
-        }
-
-        levelCompletedUI.SetActive(true);
     }
 }

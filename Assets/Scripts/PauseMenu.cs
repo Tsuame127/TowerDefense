@@ -4,8 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject PauseUI;
     private BuildManager buildManager;
-    public GameObject PauseUI;
 
     private void Start()
     {
@@ -29,6 +30,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+
     public void Toggle()
     {
         PauseUI.SetActive(!PauseUI.activeSelf);
@@ -49,7 +51,8 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void Menu()
+
+    public void GoToMenu()
     {
         Toggle();
         SceneManager.LoadScene("MainMenu");

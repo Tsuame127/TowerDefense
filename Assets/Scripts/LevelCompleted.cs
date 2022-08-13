@@ -4,14 +4,12 @@ using UnityEngine.UI;
 
 public class LevelCompleted : MonoBehaviour
 {
-    public Text wavesText;
+    [SerializeField]
+    private Text wavesText;
 
     private void OnEnable()
     {
         wavesText.text = PlayerStats.wavesFinishedCount.ToString();
     }
-    public void Menu()
-    {
-        SceneManager.LoadScene("LevelSelect");
-    }
+    public void GoToLevelSelector() { SceneManager.LoadScene("LevelSelect"); }
 }

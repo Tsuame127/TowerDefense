@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class MoneyUI : MonoBehaviour
 {
-    public Text moneyRemainingText;
+    [SerializeField]
+    private Text moneyRemainingText;
 
     void Update()
     {

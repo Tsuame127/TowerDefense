@@ -5,22 +5,20 @@ using System;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public Wave[] waves;
-    public int numberOfWaves = 50;
 
-    public GameManager gameManager;
+    private Wave[] waves;
+    [SerializeField]
+    private GameManager gameManager;
 
+    [Header("Map Properties")]
     [SerializeField]
     private Transform spawnPoint;
 
+    [Header("General Properties")]
     [SerializeField]
     private float timeBetweenWaves = 5f;
-
     [SerializeField]
     private float countDown = 2f;
-    [SerializeField]
-    private Text WaveCountdownTimer;
-
     [SerializeField]
     GameObject standardEnemyPrefab;
     [SerializeField]
@@ -28,6 +26,9 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField]
     GameObject slowEnemyPrefab;
 
+    [Header("UI")]
+    [SerializeField]
+    private Text WaveCountdownTimer;
 
     public static int waveIndex = 0;
     private bool waveFinished;
@@ -38,38 +39,9 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-        waveIndex = 0;
-        waves = new Wave[numberOfWaves];
+        waveIndex = 49;
+        waves = new Wave[GameManager.maxWaves];
         InitWavesPrefab();
-    }
-
-    private void InitWavesPrefab()
-    {
-        Waves wavesDeserialized = JsonUtility.FromJson<Waves>(wavesPropertiesFile.text);
-
-        for (int i = 0; i < wavesDeserialized.wave.Length; i++)
-        {
-            waves[i] = wavesDeserialized.wave[i];
-            switch (waves[i].enemyName)
-            {
-                case "standard":
-                    waves[i].enemyType = standardEnemyPrefab;
-                    break;
-
-                case "slow":
-                    waves[i].enemyType = slowEnemyPrefab;
-                    break;
-
-                case "fast":
-                    waves[i].enemyType = fastEnemyPrefab;
-                    break;
-
-                default:
-                    waves[i].enemyType = standardEnemyPrefab;
-                    break;
-
-            }
-        }
     }
 
     void Update()
@@ -114,10 +86,42 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
+
+    private void InitWavesPrefab()
+    {
+        Waves wavesDeserialized = JsonUtility.FromJson<Waves>(wavesPropertiesFile.text);
+
+        for (int i = 0; i < wavesDeserialized.wave.Length; i++)
+        {
+            waves[i] = wavesDeserialized.wave[i];
+            switch (waves[i].enemyName)
+            {
+                case "standard":
+                    waves[i].enemyType = standardEnemyPrefab;
+                    break;
+
+                case "slow":
+                    waves[i].enemyType = slowEnemyPrefab;
+                    break;
+
+                case "fast":
+                    waves[i].enemyType = fastEnemyPrefab;
+                    break;
+
+                default:
+                    waves[i].enemyType = standardEnemyPrefab;
+                    break;
+
+            }
+        }
+    }
+
+
     private bool IsLevelCompleted()
     {
         return (waveIndex > waves.Length);
     }
+
 
     private void DisplayTimer()
     {
@@ -130,6 +134,7 @@ public class WaveSpawner : MonoBehaviour
         else
             WaveCountdownTimer.text = stringToDisplay;
     }
+
 
     IEnumerator SpawnWave()
     {
@@ -145,6 +150,7 @@ public class WaveSpawner : MonoBehaviour
 
         this.waveFinishedToSpawn = true;
     }
+
 
     void SpawnEnemy(GameObject enemyToSpawn)
     {

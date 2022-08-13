@@ -10,7 +10,4 @@ public class Wave
 }
 
 
-public class Waves
-{
-    public Wave[] wave;
-}
+public class Waves { public Wave[] wave; }

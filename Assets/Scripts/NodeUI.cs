@@ -20,10 +20,6 @@ public class NodeUI : MonoBehaviour
         buildManager = BuildManager.instance;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     public void SetTarget(Node _target)
     {
@@ -53,6 +49,7 @@ public class NodeUI : MonoBehaviour
         }
     }
 
+
     public void Hide()
     {
         if (selectedTurret != null)
@@ -61,6 +58,7 @@ public class NodeUI : MonoBehaviour
         }
         ui.SetActive(false);
     }
+
 
     public void Upgrade()
     {
@@ -76,10 +74,5 @@ public class NodeUI : MonoBehaviour
     {
         target.SellTurret();
         buildManager.DeselectNode();
-    }
-
-    private void drawTurretRange()
-    {
-        //Draw turret range when clicked
     }
 }

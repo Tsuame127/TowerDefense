@@ -18,19 +18,15 @@ public class MainMenu : MonoBehaviour
     }
     #endregion
 
-    public string levelToLoad = "LevelSelect";
+    [SerializeField]
+    private string levelToLoad = "LevelSelect";
 
-    public void Play()
-    {
-        SceneManager.LoadScene(levelToLoad);
-    }
+    public void Play() { SceneManager.LoadScene(levelToLoad); }
+
     public void Options()
     {
         Debug.Log("Options");
     }
 
-    public void Exit()
-    {
-        Application.Quit();
-    }
+    public void Exit() { Application.Quit(); }
 }

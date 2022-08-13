@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float defaultSpeed = 35f;
-    [HideInInspector]
-    public float speed;
+    [Header("Stats")]
+    [SerializeField]
+    private float defaultSpeed = 35f;
     [SerializeField]
     private float health = 100f;
-    public int deathBounty = 5;
-    public GameObject deathEffect;
+    [SerializeField]
+    private int deathBounty = 5;
+    private float speed;
 
+    [Header("UI")]
+    [SerializeField]
+    private GameObject deathEffect;
 
     private void Start()
     {
@@ -35,8 +39,10 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void Slow(float slowAmount)
-    {
-        speed = defaultSpeed * (1f - slowAmount);
-    }
+    public void Slow(float slowAmount) { speed = defaultSpeed * (1f - slowAmount); }
+
+    //Accessors
+    public float GetSpeed() { return speed; }
+    public void SetSpeed(float newSpeed) { this.speed = newSpeed; }
+    public float GetDefaultSpeed() { return this.defaultSpeed; }
 }
