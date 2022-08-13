@@ -120,10 +120,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standardTurret:
-    prefab: {fileID: 8678247776176088849, guid: e8b8673aad1fd6449be3c74a8993526e, type: 3}
+    prefab: {fileID: 4885923379304660672, guid: 11d58b3fddcfd7f46aebe860d59b9c24, type: 3}
     cost: 200
     sellPrice: 80
-    upgradedPrefab: {fileID: 8678247776176088849, guid: 258d22dc0dde0284fb4c49dc5331ee91, type: 3}
+    upgradedPrefab: {fileID: 8290093267599688012, guid: 258d22dc0dde0284fb4c49dc5331ee91, type: 3}
     upgradeCost: 400
     upgradedSellPrice: 280
   missileLauncherTurret:

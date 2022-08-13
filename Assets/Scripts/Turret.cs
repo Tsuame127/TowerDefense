@@ -27,14 +27,23 @@ public class Turret : MonoBehaviour
     public string enemyTag = "Enemy";
     public float turnSpeed = 15f;
 
+
+    public GameObject turretRangeCylinder;
+
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.1f);
+        turretRangeCylinder.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (turretRangeCylinder.activeSelf)
+        {
+            turretRangeCylinder.transform.localScale = new Vector3(range * 2, 1, range * 2);
+        }
+
         fireCountDown -= Time.deltaTime;
 
         if (target == null)
@@ -92,6 +101,7 @@ public class Turret : MonoBehaviour
 
     void UpdateTarget()
     {
+
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
 
         float shortestDistance = Mathf.Infinity;
@@ -135,5 +145,15 @@ public class Turret : MonoBehaviour
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    public void HideRange()
+    {
+        turretRangeCylinder.SetActive(false);
+    }
+
+    public void ShowRange()
+    {
+        turretRangeCylinder.SetActive(true);
     }
 }

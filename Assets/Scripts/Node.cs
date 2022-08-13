@@ -121,4 +121,9 @@ public class Node : MonoBehaviour
     {
         rend.material.color = startColor;
     }
+
+    public GameObject GetTurret()
+    {
+        return turret;
+    }
 }

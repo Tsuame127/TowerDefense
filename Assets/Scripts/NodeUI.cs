@@ -13,6 +13,8 @@ public class NodeUI : MonoBehaviour
     public Text sellPriceText;
     public Button upgradeButton;
 
+    private Turret selectedTurret = null;
+
     private void Start()
     {
         buildManager = BuildManager.instance;
@@ -25,10 +27,17 @@ public class NodeUI : MonoBehaviour
 
     public void SetTarget(Node _target)
     {
+        if (selectedTurret != null)
+        {
+            selectedTurret.HideRange();
+        }
+
         target = _target;
         transform.position = target.GetBuildPosition();
+        selectedTurret = target.GetTurret().GetComponent<Turret>();
 
         ui.SetActive(true);
+        selectedTurret.ShowRange();
 
         if (target.isUpgraded)
         {
@@ -46,6 +55,10 @@ public class NodeUI : MonoBehaviour
 
     public void Hide()
     {
+        if (selectedTurret != null)
+        {
+            selectedTurret.HideRange();
+        }
         ui.SetActive(false);
     }
 
