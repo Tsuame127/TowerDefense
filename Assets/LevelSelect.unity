@@ -615,7 +615,6 @@ MonoBehaviour:
   levelButtons:
   - {fileID: 1562612600}
   - {fileID: 2136168218}
-  - {fileID: 0}
 --- !u!1 &859780154
 GameObject:
   m_ObjectHideFlags: 0

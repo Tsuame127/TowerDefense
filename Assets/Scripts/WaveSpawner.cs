@@ -39,7 +39,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-        waveIndex = 49;
+        waveIndex = 0;
         waves = new Wave[GameManager.maxWaves];
         InitWavesPrefab();
     }
