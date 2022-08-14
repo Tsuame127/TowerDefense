@@ -5656,6 +5656,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 39.618, y: -289.826, z: -118.98}
+--- !u!1 &729331582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 729331584}
+  - component: {fileID: 729331583}
+  m_Layer: 0
+  m_Name: UIStats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &729331583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729331582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e0573127861ff40ada9a8a546c574c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyRemainingText: {fileID: 1431503034094619759}
+  livesRemainingText: {fileID: 1431503032788265158}
+  waveCoutingText: {fileID: 909206717}
+--- !u!4 &729331584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729331582}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -163, y: 66.23584, z: -7.6403847}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &730798201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7594,7 +7641,6 @@ GameObject:
   - component: {fileID: 909206716}
   - component: {fileID: 909206718}
   - component: {fileID: 909206717}
-  - component: {fileID: 909206719}
   - component: {fileID: 909206720}
   m_Layer: 5
   m_Name: WaveNumber
@@ -7665,19 +7711,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909206715}
   m_CullTransparentMesh: 1
---- !u!114 &909206719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909206715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 321976041aaa8b54590300027c563aa0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waveCoutingText: {fileID: 909206717}
 --- !u!114 &909206720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18868,7 +18901,6 @@ GameObject:
   - component: {fileID: 1431503032788265153}
   - component: {fileID: 1431503032788265159}
   - component: {fileID: 1431503032788265158}
-  - component: {fileID: 1431503032788265156}
   m_Layer: 5
   m_Name: Lives
   m_TagString: Untagged
@@ -18896,19 +18928,6 @@ RectTransform:
   m_AnchoredPosition: {x: 23.151855, y: -27.698242}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1431503032788265156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1431503032788265152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77580a8862856bc48b5e89bd829aa71f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  livesRemainingText: {fileID: 1431503032788265158}
 --- !u!114 &1431503032788265158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20641,7 +20660,6 @@ GameObject:
   - component: {fileID: 1431503034094619758}
   - component: {fileID: 1431503034094619756}
   - component: {fileID: 1431503034094619759}
-  - component: {fileID: 1431503034094619757}
   m_Layer: 5
   m_Name: Money
   m_TagString: Untagged
@@ -20657,19 +20675,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431503034094619753}
   m_CullTransparentMesh: 1
---- !u!114 &1431503034094619757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1431503034094619753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c34e2e856efb6bd48b00e8e83fe472ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moneyRemainingText: {fileID: 1431503034094619759}
 --- !u!224 &1431503034094619758
 RectTransform:
   m_ObjectHideFlags: 0
