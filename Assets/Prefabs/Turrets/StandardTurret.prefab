@@ -327,6 +327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5225751999618393210}
   - component: {fileID: 4885923379304660687}
+  - component: {fileID: 749223640}
   m_Layer: 0
   m_Name: StandardTurret
   m_TagString: Turret
@@ -365,6 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 8
+  turretRangeCylinder: {fileID: 4296747622325540221}
   bulletPrefab: {fileID: 576042654230209522, guid: 62edc65ae388b914d8ba13ae34dfb538, type: 3}
   fireRate: 8
   UseLaser: 0
@@ -376,7 +378,20 @@ MonoBehaviour:
   partToRotate: {fileID: 2142379442217113967}
   enemyTag: Enemy
   turnSpeed: 15
-  turretRangeCylinder: {fileID: 4296747622325540221}
+--- !u!136 &749223640
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4885923379304660672}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.75
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &8734781187018174845
 GameObject:
   m_ObjectHideFlags: 0

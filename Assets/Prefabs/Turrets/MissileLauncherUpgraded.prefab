@@ -177,6 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5733122208763913795}
   - component: {fileID: 4961828702921358590}
+  - component: {fileID: 2082661529}
   m_Layer: 0
   m_Name: MissileLauncherUpgraded
   m_TagString: Turret
@@ -215,6 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 15
+  turretRangeCylinder: {fileID: 1984730375}
   bulletPrefab: {fileID: 7939067134716715065, guid: c9987372526837749b8ab3866f1e00b2, type: 3}
   fireRate: 2
   UseLaser: 0
@@ -226,7 +228,20 @@ MonoBehaviour:
   partToRotate: {fileID: 7689551887554685772}
   enemyTag: Enemy
   turnSpeed: 15
-  turretRangeCylinder: {fileID: 1984730375}
+--- !u!136 &2082661529
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4961828702921358585}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.2
+  m_Height: 6
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &4985055101627229166
 GameObject:
   m_ObjectHideFlags: 0

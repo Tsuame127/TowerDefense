@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
         if (!gameIsOver)
         {
             PlayerStats.wavesFinishedCount = wave;
-            Debug.Log("Plus de waves, c'est gagné");
 
             if (PlayerPrefs.GetInt("levelReached", 1) < levelToUnlock)
             {

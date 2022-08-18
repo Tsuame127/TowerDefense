@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class BuildManager : MonoBehaviour
 {
@@ -17,10 +18,9 @@ public class BuildManager : MonoBehaviour
     #endregion
 
     private TurretBluePrint turretToBuild;
-    private Node selectedNode;
 
     [SerializeField]
-    private NodeUI nodeUI;
+    public UpgradeSellUI upgradeSellUI;
     public bool CanBuild { get { return turretToBuild != null; } }
     public bool HasEnoughMoney { get { return PlayerStats.money >= turretToBuild.cost; } }
 
@@ -28,44 +28,46 @@ public class BuildManager : MonoBehaviour
     private void Start()
     {
         turretToBuild = null;
-        selectedNode = null;
     }
 
 
     public bool IsBuilding()
     {
-        return ((turretToBuild != null) || (selectedNode != null));
+        return (turretToBuild != null);
     }
 
 
     public void SelectTurretToBuild(TurretBluePrint turret)
     {
         turretToBuild = turret;
-        DeselectNode();
     }
 
-
-    public void SelectNode(Node node)
+    public void SellTurret(Turret turretToSell)
     {
-        if (node == selectedNode)
+        if (turretToSell.isUpgraded)
+            PlayerStats.money += turretToSell.blueprint.upgradedSellPrice;
+        else
+            PlayerStats.money += turretToSell.blueprint.sellPrice;
+
+        Destroy(turretToSell.gameObject);
+        upgradeSellUI.DeselectTurret();
+    }
+
+    public void UpgradeTurret(Turret turretToUpgrade)
+    {
+        if (turretToUpgrade.blueprint.upgradeCost < PlayerStats.money)
         {
-            DeselectNode();
-            return;
+            GameObject upgradedTurret = Instantiate(turretToUpgrade.blueprint.upgradedPrefab, turretToUpgrade.transform.position, Quaternion.identity);
+            upgradedTurret.GetComponent<Turret>().isUpgraded = true;
+            upgradedTurret.GetComponent<Turret>().SetBlueprint(turretToUpgrade.blueprint);
+
+            Destroy(turretToUpgrade.gameObject);
+
+            upgradeSellUI.SetTarget(upgradedTurret.GetComponent<Turret>());
+
+            PlayerStats.money -= turretToUpgrade.blueprint.upgradeCost;
         }
-
-        selectedNode = node;
-        turretToBuild = null;
-
-        nodeUI.SetTarget(node);
     }
-
-
-    public void DeselectNode()
-    {
-        selectedNode = null;
-        nodeUI.Hide();
-    }
-
 
     //Accessors
     public TurretBluePrint GetTurretToBuild() { return turretToBuild; }

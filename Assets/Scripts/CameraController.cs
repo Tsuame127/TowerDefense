@@ -10,16 +10,30 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     public float scrollSpeed = 5f;
     [SerializeField]
-    public Vector3 defaultPosition = new (-22.5f, 70, -10);
+    public Vector3 defaultPosition = new(0f, 65f, -22f);
 
     private bool canMove = false;
 
-    private float minX = -62.5f;
-    private float maxX = 22.5f;
-    private float minY = 20f;
-    private float maxY = 90f;
-    private float minZ = -55f;
-    private float maxZ = 35f;
+    private float minX;
+    private float maxX;
+    private float minY;
+    private float maxY;
+    private float minZ;
+    private float maxZ;
+
+
+    private void Start()
+    {
+        minX = defaultPosition.x - 20f;
+        maxX = defaultPosition.x + 20f;
+
+        minY = defaultPosition.y - 30f;
+        maxY = defaultPosition.y + 10f;
+
+        minZ = defaultPosition.z - 20f;
+        maxZ = defaultPosition.z + 20f;
+    }
+
 
     // Update is called once per frame
     void Update()

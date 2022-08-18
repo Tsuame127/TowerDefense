@@ -8,6 +8,7 @@ public class TurretBluePrint
     public GameObject prefab;
     public int cost;
     public int sellPrice;
+    public float placementRadius;
 
     public GameObject upgradedPrefab;
     public int upgradeCost;

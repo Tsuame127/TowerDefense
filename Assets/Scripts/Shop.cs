@@ -37,6 +37,8 @@ public class Shop : MonoBehaviour
         standardTurretText.text = "$" + standardTurret.cost;
         missileTurretText.text = "$" + missileLauncherTurret.cost;
         laserTurretText.text = "$" + laserBeamerTurret.cost;
+
+        InitTurretPlacementRadius();
     }
     
 
@@ -65,5 +67,12 @@ public class Shop : MonoBehaviour
 
         if (buildManager.GetTurretToBuild() == laserBeamerTurret)
             laserTurretButton.Select();
+    }
+
+    private void InitTurretPlacementRadius()
+    {
+        standardTurret.placementRadius = standardTurret.prefab.GetComponent<CapsuleCollider>().radius;
+        missileLauncherTurret.placementRadius = missileLauncherTurret.prefab.GetComponent<CapsuleCollider>().radius;
+        laserBeamerTurret.placementRadius = laserBeamerTurret.prefab.GetComponent<CapsuleCollider>().radius;
     }
 }

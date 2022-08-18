@@ -40,7 +40,7 @@ public class MenuButton : MonoBehaviour
                 break;
 
             default:
-                Debug.Log("error");
+                Debug.LogError("Button not found");
                 break;
         }
     }

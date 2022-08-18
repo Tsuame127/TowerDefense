@@ -1,6 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using static UnityEngine.GraphicsBuffer;
+
+
+public enum TurretStatus { Placing, Active, Inactive }
 
 public class Turret : MonoBehaviour
 {
@@ -29,17 +34,29 @@ public class Turret : MonoBehaviour
     public string enemyTag = "Enemy";
     public float turnSpeed = 15f;
 
+    private BuildManager buildManager;
+    public TurretBluePrint blueprint;
     
+    public bool isUpgraded = false;
+    private TurretStatus turretStatus;
+
 
     void Start()
     {
         InvokeRepeating(nameof(UpdateTarget), 0f, 0.1f);
         turretRangeCylinder.SetActive(false);
+        buildManager = BuildManager.instance;
     }
 
 
     void Update()
     {
+        if (turretStatus == TurretStatus.Placing)
+        {
+            ShowRange();
+            return;
+        }
+
         if (turretRangeCylinder.activeSelf)
         {
             turretRangeCylinder.transform.localScale = new Vector3(range * 2, 1, range * 2);
@@ -145,6 +162,30 @@ public class Turret : MonoBehaviour
 
     public void HideRange() { turretRangeCylinder.SetActive(false); }
     public void ShowRange() { turretRangeCylinder.SetActive(true); }
+
+
+    private void OnMouseDown()
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
+        buildManager.upgradeSellUI.SetTarget(this);
+    }
+
+    public void SetBlueprint(TurretBluePrint _blueprint)
+    {
+        blueprint = _blueprint;
+    }
+
+
+    public void SetTurretStatus(TurretStatus _turretStatus)
+    {
+        this.turretStatus = _turretStatus;
+    }
+
+
 
     //RemoveAfterRelease
     private void OnDrawGizmosSelected()

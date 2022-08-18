@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 4065755254212051495}
   - component: {fileID: 4065755254212051494}
   - component: {fileID: 632907021193508216}
+  - component: {fileID: 7906877122331249233}
   m_Layer: 0
   m_Name: LaserBeamer
   m_TagString: Turret
@@ -281,19 +282,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6565bd53d87836f4783e8b26766cbc0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
+  range: 12
+  turretRangeCylinder: {fileID: 804087043}
   bulletPrefab: {fileID: 0}
   fireRate: 1
   UseLaser: 1
-  damageOverTime: 40
-  slowAmount: 0.3
+  damageOverTime: 50
+  slowAmount: 0.35
   lineRenderer: {fileID: 632907021193508216}
   impactEffect: {fileID: 1160683619143195791}
   firePoint: {fileID: 1158040975056387064}
   partToRotate: {fileID: 1158040975245765091}
   enemyTag: Enemy
   turnSpeed: 35
-  turretRangeCylinder: {fileID: 804087043}
+  blueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    sellPrice: 0
+    placementRadius: 0
+    upgradedPrefab: {fileID: 0}
+    upgradeCost: 0
+    upgradedSellPrice: 0
+  isUpgraded: 0
 --- !u!120 &632907021193508216
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -393,6 +403,20 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!136 &7906877122331249233
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3686097821541111965}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.8
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &8318272242378436188
 GameObject:
   m_ObjectHideFlags: 0
