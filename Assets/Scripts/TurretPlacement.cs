@@ -66,6 +66,12 @@ public class TurretPlacement : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(0))
                 {
+                    if (EventSystem.current.IsPointerOverGameObject())
+                    {
+                        Destroy(placingTurret);
+                        buildManager.SelectTurretToBuild(null);
+                        return;
+                    }
                     PlayerStats.money -= buildManager.GetTurretToBuild().cost;
 
                     placingTurret.GetComponent<Turret>().HideRange();
@@ -78,41 +84,6 @@ public class TurretPlacement : MonoBehaviour
 
             }
         }
-    }
-
-    private void OnMouseDown()
-    {
-        //if (EventSystem.current.IsPointerOverGameObject())
-        //{
-        //    return;
-        //}
-
-        //Vector3 screenpos;
-        //Vector3 worldpos;
-
-        //screenpos = Input.mousePosition;
-        //Ray ray = Camera.main.ScreenPointToRay(screenpos);
-
-
-        //if (buildManager.GetTurretToBuild() != null && buildManager.HasEnoughMoney)
-        //{
-        //    if (Physics.Raycast(ray, out RaycastHit rayData, 1000, layerToHit))
-        //    {
-        //        worldpos = rayData.point;
-        //        worldpos.y = 0;
-
-        //        GameObject placedTurret = TryToPlaceTurret(worldpos);
-
-        //        if (placedTurret != null)
-        //        {
-        //            placedTurret.GetComponent<Turret>().SetBlueprint(buildManager.GetTurretToBuild());
-
-        //            PlayerStats.money -= buildManager.GetTurretToBuild().cost;
-        //            buildManager.SelectTurretToBuild(null);
-        //        }
-        //    }
-        //}
-
     }
 
     private bool CanPlaceTurret(Vector3 posToPlace)

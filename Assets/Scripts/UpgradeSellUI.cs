@@ -20,6 +20,14 @@ public class UpgradeSellUI : MonoBehaviour
         buildManager = BuildManager.instance;
     }
 
+    private void Update()
+    {
+        if (ui.activeSelf)
+        {
+            buildManager.SelectTurretToBuild(null);
+        }
+
+    }
 
     public void SetTarget(Turret _target)
     {

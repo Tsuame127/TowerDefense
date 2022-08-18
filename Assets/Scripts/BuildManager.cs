@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using UnityEngine.EventSystems;
 
 public class BuildManager : MonoBehaviour
 {
@@ -40,6 +41,10 @@ public class BuildManager : MonoBehaviour
     public void SelectTurretToBuild(TurretBluePrint turret)
     {
         turretToBuild = turret;
+        if (turretToBuild == null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+        }
     }
 
     public void SellTurret(Turret turretToSell)
