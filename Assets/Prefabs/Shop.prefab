@@ -125,11 +125,11 @@ MonoBehaviour:
     sellPrice: 80
     placementRadius: 0
     upgradedPrefab: {fileID: 8290093267599688012, guid: 258d22dc0dde0284fb4c49dc5331ee91, type: 3}
-    upgradeCost: 250
-    upgradedSellPrice: 150
+    upgradeCost: 350
+    upgradedSellPrice: 210
   missileLauncherTurret:
     prefab: {fileID: 4961828702921358585, guid: c19fe5849fc9534438d32e7439eccc61, type: 3}
-    cost: 300
+    cost: 280
     sellPrice: 135
     placementRadius: 0
     upgradedPrefab: {fileID: 4961828702921358585, guid: e088fe253dd47e64c84e119fd9383848, type: 3}
@@ -137,12 +137,12 @@ MonoBehaviour:
     upgradedSellPrice: 250
   laserBeamerTurret:
     prefab: {fileID: 3686097821541111965, guid: b9e0b43a980191d48afae5a33bc7bf1a, type: 3}
-    cost: 280
+    cost: 250
     sellPrice: 130
     placementRadius: 0
     upgradedPrefab: {fileID: 3686097821541111965, guid: 216958756b33dfe4c96c449259cda854, type: 3}
-    upgradeCost: 480
-    upgradedSellPrice: 430
+    upgradeCost: 330
+    upgradedSellPrice: 280
   standTurretButton: {fileID: 4801731114026447354}
   missileTurretButton: {fileID: 2501614033385226067}
   laserTurretButton: {fileID: 2501614033593138360}

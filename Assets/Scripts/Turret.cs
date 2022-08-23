@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEngine.GraphicsBuffer;
 
 
 public enum TurretStatus { Placing, Active, Inactive }
@@ -44,7 +41,10 @@ public class Turret : MonoBehaviour
     void Start()
     {
         InvokeRepeating(nameof(UpdateTarget), 0f, 0.1f);
+
+        turretRangeCylinder.transform.localScale = new Vector3(range * 2, 1, range * 2);
         turretRangeCylinder.SetActive(false);
+
         buildManager = BuildManager.instance;
     }
 

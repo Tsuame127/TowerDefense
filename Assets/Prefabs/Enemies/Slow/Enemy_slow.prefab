@@ -112,8 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultSpeed: 20
-  health: 230
-  deathBounty: 3
+  health: 220
+  deathBounty: 1
   deathEffect: {fileID: 3784054257569999434, guid: 156827c89b2e9c64aaf373cd6d4ecd37, type: 3}
 --- !u!114 &2536219461652259547
 MonoBehaviour:

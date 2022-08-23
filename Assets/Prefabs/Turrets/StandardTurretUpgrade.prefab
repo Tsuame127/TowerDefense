@@ -482,10 +482,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6565bd53d87836f4783e8b26766cbc0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
+  range: 12
   turretRangeCylinder: {fileID: 820508046870716582}
   bulletPrefab: {fileID: 576042654230209522, guid: 5183a674e2449204e9f3f043a214eb48, type: 3}
-  fireRate: 16
+  fireRate: 15
   UseLaser: 0
   damageOverTime: 0
   slowAmount: 0
@@ -495,6 +495,15 @@ MonoBehaviour:
   partToRotate: {fileID: 3276747279652529891}
   enemyTag: Enemy
   turnSpeed: 15
+  blueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    sellPrice: 0
+    placementRadius: 0
+    upgradedPrefab: {fileID: 0}
+    upgradeCost: 0
+    upgradedSellPrice: 0
+  isUpgraded: 0
 --- !u!136 &6986193475516658623
 CapsuleCollider:
   m_ObjectHideFlags: 0
