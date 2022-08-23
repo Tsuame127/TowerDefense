@@ -20,6 +20,8 @@ public class BuildManager : MonoBehaviour
 
     private TurretBluePrint turretToBuild;
 
+    public bool IsTurretIsSelected { get { return upgradeSellUI.ui.activeSelf; } }
+
     [SerializeField]
     public UpgradeSellUI upgradeSellUI;
     public bool CanBuild { get { return turretToBuild != null; } }
@@ -72,6 +74,11 @@ public class BuildManager : MonoBehaviour
 
             PlayerStats.money -= turretToUpgrade.blueprint.upgradeCost;
         }
+    }
+
+    public void DeselectTurret()
+    {
+        upgradeSellUI.Hide();
     }
 
     //Accessors

@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
@@ -15,9 +17,13 @@ public class UpgradeSellUI : MonoBehaviour
     public Text sellPriceText;
     public Button upgradeButton;
 
+
+    private bool justSelectedTurret;
+
     private void Start()
     {
         buildManager = BuildManager.instance;
+        justSelectedTurret = false;
     }
 
     private void Update()
@@ -25,8 +31,14 @@ public class UpgradeSellUI : MonoBehaviour
         if (ui.activeSelf)
         {
             buildManager.SelectTurretToBuild(null);
+
+            if (Input.GetMouseButtonDown(0) && justSelectedTurret == false && !EventSystem.current.IsPointerOverGameObject())
+            {
+                Hide();
+            }
         }
 
+        justSelectedTurret = false;
     }
 
     public void SetTarget(Turret _target)
@@ -43,6 +55,7 @@ public class UpgradeSellUI : MonoBehaviour
             target.HideRange();
         }
 
+        justSelectedTurret = true;
         target = _target;
         transform.position = target.transform.position;
 
@@ -81,9 +94,7 @@ public class UpgradeSellUI : MonoBehaviour
 
         if (target.isUpgraded)
         {
-
             target.GetComponent<Turret>().SetTurretStatus(TurretStatus.Active);
-            DeselectTurret();
         }
     }
 
@@ -100,5 +111,18 @@ public class UpgradeSellUI : MonoBehaviour
     public void DeselectTurret()
     {
         Hide();
+    }
+
+    private GameObject GetClickedGameObject()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 1000f))
+        {
+            return hit.transform.gameObject;
+        }
+
+        return null;
     }
 }

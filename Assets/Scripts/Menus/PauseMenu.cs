@@ -18,9 +18,10 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (buildManager.IsBuilding())
+            if (buildManager.IsBuilding() || buildManager.IsTurretIsSelected)
             {
                 buildManager.SelectTurretToBuild(null);
+                buildManager.DeselectTurret();
                 EventSystem.current.SetSelectedGameObject(null);
             }
             else

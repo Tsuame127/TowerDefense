@@ -22,11 +22,8 @@ public class Shop : MonoBehaviour
     private Button laserTurretButton;
 
     [Header("Price Texts")]
-    [SerializeField]
     private Text standardTurretText;
-    [SerializeField]
     private Text missileTurretText;
-    [SerializeField]
     private Text laserTurretText;
 
 
@@ -34,19 +31,35 @@ public class Shop : MonoBehaviour
     {
         buildManager = BuildManager.instance;
 
+        standardTurretText = standTurretButton.GetComponentInChildren<Text>();
+        missileTurretText = missileTurretButton.GetComponentInChildren<Text>();
+        laserTurretText = laserTurretButton.GetComponentInChildren<Text>();
+
         standardTurretText.text = "$" + standardTurret.cost;
         missileTurretText.text = "$" + missileLauncherTurret.cost;
         laserTurretText.text = "$" + laserBeamerTurret.cost;
 
         InitTurretPlacementRadius();
     }
-    
 
-    public void SelectStandardTurret() { buildManager.SelectTurretToBuild(standardTurret); }
 
-    public void SelectMissileLauncher() { buildManager.SelectTurretToBuild(missileLauncherTurret); }
+    public void SelectStandardTurret()
+    {
+        buildManager.DeselectTurret();
+        buildManager.SelectTurretToBuild(standardTurret);
+    }
 
-    public void SelectLaserBeamer() { buildManager.SelectTurretToBuild(laserBeamerTurret); }
+    public void SelectMissileLauncher()
+    {
+        buildManager.DeselectTurret();
+        buildManager.SelectTurretToBuild(missileLauncherTurret);
+    }
+
+    public void SelectLaserBeamer()
+    {
+        buildManager.DeselectTurret();
+        buildManager.SelectTurretToBuild(laserBeamerTurret);
+    }
 
     private void Update()
     {
