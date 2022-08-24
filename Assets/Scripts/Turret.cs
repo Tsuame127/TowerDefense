@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -119,29 +122,43 @@ public class Turret : MonoBehaviour
     void UpdateTarget()
     {
 
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        List<GameObject> enemies = GameObject.FindGameObjectsWithTag(enemyTag).ToList<GameObject>();
 
-        float shortestDistance = Mathf.Infinity;
-        GameObject nearestEnemy = null;
+        GameObject firstEnemy = null;
 
-        foreach (GameObject enemy in enemies)
+        for (int i = 0; i < enemies.Count; i++)
         {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance)
+            if (Vector3.Distance(transform.position, enemies.ElementAt(i).transform.position) <= range)
             {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
+
+                if (firstEnemy == null)
+                {
+                    firstEnemy = enemies.ElementAt(i);
+                    continue;
+                }
+
+                if (firstEnemy.GetComponent<EnemyMovement>().GetWaypointIndex() < enemies.ElementAt(i).GetComponent<EnemyMovement>().GetWaypointIndex())
+                {
+                    firstEnemy = enemies.ElementAt(i);
+                }
+                else if(firstEnemy.GetComponent<EnemyMovement>().GetWaypointIndex() == enemies.ElementAt(i).GetComponent<EnemyMovement>().GetWaypointIndex())
+                {
+                    if (firstEnemy.GetComponent<EnemyMovement>().GetDistanceToNextWaypoint() > enemies.ElementAt(i).GetComponent<EnemyMovement>().GetDistanceToNextWaypoint())
+                    {
+                        firstEnemy = enemies.ElementAt(i);
+                    }
+                }
             }
         }
 
-        if (nearestEnemy != null && shortestDistance <= range)
+        if (firstEnemy != null)
         {
-            target = nearestEnemy.transform;
+            target = firstEnemy.transform;
             enemyTarget = target.GetComponent<Enemy>();
         }
         else
         {
-            target = null;
+            this.target = null;
         }
     }
 

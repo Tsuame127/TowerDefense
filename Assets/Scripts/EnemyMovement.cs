@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Enemy))]
@@ -15,14 +16,15 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        Vector3 dir = this.nextWayPoint.position - transform.position;
 
-        transform.Translate(enemy.GetSpeed() * Time.deltaTime * dir.normalized, Space.World);
-
-        if (Vector3.Distance(this.transform.position, this.nextWayPoint.transform.position) <= 0.4f)
+        if (this.transform.position == this.nextWayPoint.transform.position)
         {
             this.GetNextWayPoint();
         }
+
+        transform.forward = Vector3.RotateTowards(transform.forward, nextWayPoint.position - transform.position, 150 * Time.deltaTime, 0.0f);
+
+        transform.position = Vector3.MoveTowards(transform.position, nextWayPoint.position, enemy.GetSpeed() * Time.deltaTime);
 
         enemy.SetSpeed(enemy.GetDefaultSpeed());
     }
@@ -44,5 +46,22 @@ public class EnemyMovement : MonoBehaviour
     {
         PlayerStats.lives--;
         Destroy(gameObject);
+    }
+
+    public int GetWaypointIndex()
+    {
+        return this.wayPointIndex;
+    }
+
+    public float GetDistanceToNextWaypoint()
+    {
+        try
+        {
+            return Vector3.Distance(enemy.transform.position, this.nextWayPoint.transform.position);
+        }
+        catch (Exception)
+        {
+            return 0.0f;
+        }
     }
 }
