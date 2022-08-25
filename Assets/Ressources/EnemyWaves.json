@@ -96,9 +96,9 @@
         "rate": 8
       },
       {
-        "enemyName": "standard",
-        "count": 70,
-        "rate": 11
+        "enemyName": "spaceship",
+        "count": 1,
+        "rate": 1
       },
       {
         "enemyName": "slow",
@@ -116,9 +116,9 @@
         "rate": 15
       },
       {
-        "enemyName": "fast",
-        "count": 40,
-        "rate": 10
+        "enemyName": "spaceship",
+        "count": 2,
+        "rate": 1
       },
       {
         "enemyName": "slow",
@@ -166,9 +166,9 @@
         "rate": 15
       },
       {
-        "enemyName": "standard",
-        "count": 150,
-        "rate": 25
+        "enemyName": "spaceship",
+        "count": 5,
+        "rate": 1
       },
       {
         "enemyName": "slow",
@@ -221,9 +221,9 @@
         "rate": 30
       },
       {
-        "enemyName": "standard",
-        "count": 200,
-        "rate": 45
+        "enemyName": "spaceship",
+        "count": 5,
+        "rate": 2
       },
       {
         "enemyName": "fast",
@@ -246,9 +246,9 @@
         "rate": 35
       },
       {
-        "enemyName": "fast",
-        "count": 250,
-        "rate": 35
+        "enemyName": "spaceship",
+        "count": 10,
+        "rate": 2
       }
     ]
   }

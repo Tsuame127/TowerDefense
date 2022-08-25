@@ -25,6 +25,8 @@ public class WaveSpawner : MonoBehaviour
     GameObject fastEnemyPrefab;
     [SerializeField]
     GameObject slowEnemyPrefab;
+    [SerializeField]
+    GameObject spaceshipEnemyPrefab;
 
     [Header("UI")]
     [SerializeField]
@@ -107,7 +109,9 @@ public class WaveSpawner : MonoBehaviour
                 case "fast":
                     waves[i].enemyType = fastEnemyPrefab;
                     break;
-
+                case "spaceship":
+                    waves[i].enemyType = spaceshipEnemyPrefab;
+                    break;
                 default:
                     waves[i].enemyType = standardEnemyPrefab;
                     break;

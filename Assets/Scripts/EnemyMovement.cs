@@ -44,7 +44,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnEndReached()
     {
-        PlayerStats.lives--;
+        PlayerStats.lives -= enemy.livesToRemove;
         Destroy(gameObject);
     }
 

@@ -9674,6 +9674,7 @@ MonoBehaviour:
   standardEnemyPrefab: {fileID: 889202425785456145, guid: 915c53b7561483d4183650e547bcaf1f, type: 3}
   fastEnemyPrefab: {fileID: 7758814470037757895, guid: e96f990ab0d579e47838cce37b6e6da8, type: 3}
   slowEnemyPrefab: {fileID: 4701894514062166663, guid: 9ff9ac02aae86dc499e4c85ebb95adad, type: 3}
+  spaceshipEnemyPrefab: {fileID: 2703125345115643208, guid: 227e924b07e52804289c0c565e4e1137, type: 3}
   WaveCountdownTimer: {fileID: 547428112}
   wavesPropertiesFile: {fileID: 4900000, guid: dc0f3b2bdbf13d0408fc13e50b25c6f1, type: 3}
 --- !u!4 &1780148276

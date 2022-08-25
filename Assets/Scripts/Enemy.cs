@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     private float health = 100f;
     [SerializeField]
     private int deathBounty = 5;
+    public int livesToRemove = 1;
     private float speed;
 
     [Header("UI")]

@@ -324,6 +324,7 @@ MonoBehaviour:
   defaultSpeed: 35
   health: 100
   deathBounty: 1
+  livesToRemove: 1
   deathEffect: {fileID: 3784054257569999434, guid: cabb198d583677b4bb655c96476a35d4, type: 3}
 --- !u!114 &122521908722734267
 MonoBehaviour:

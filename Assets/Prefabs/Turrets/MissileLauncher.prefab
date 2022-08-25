@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 66829659}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.49, z: 0}
-  m_LocalScale: {x: 20, y: 1, z: 20}
+  m_LocalScale: {x: 3, y: 1, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5733122208763913795}
@@ -228,6 +228,15 @@ MonoBehaviour:
   partToRotate: {fileID: 7689551887554685772}
   enemyTag: Enemy
   turnSpeed: 15
+  blueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    sellPrice: 0
+    placementRadius: 0
+    upgradedPrefab: {fileID: 0}
+    upgradeCost: 0
+    upgradedSellPrice: 0
+  isUpgraded: 0
 --- !u!136 &6734182685864173430
 CapsuleCollider:
   m_ObjectHideFlags: 0
