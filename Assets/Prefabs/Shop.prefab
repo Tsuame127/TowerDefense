@@ -133,8 +133,8 @@ MonoBehaviour:
     sellPrice: 135
     placementRadius: 0
     upgradedPrefab: {fileID: 4961828702921358585, guid: e088fe253dd47e64c84e119fd9383848, type: 3}
-    upgradeCost: 200
-    upgradedSellPrice: 250
+    upgradeCost: 320
+    upgradedSellPrice: 300
   laserBeamerTurret:
     prefab: {fileID: 3686097821541111965, guid: b9e0b43a980191d48afae5a33bc7bf1a, type: 3}
     cost: 250

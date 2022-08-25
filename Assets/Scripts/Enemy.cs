@@ -37,7 +37,13 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void Slow(float slowAmount) { speed = defaultSpeed * (1f - slowAmount); }
+    public void Slow(float slowAmount) 
+    {
+        if (speed >= defaultSpeed * (1f - slowAmount))
+        {
+            speed = defaultSpeed * (1f - slowAmount);
+        }
+    }
 
     //Accessors
     public float GetSpeed() { return speed; }
