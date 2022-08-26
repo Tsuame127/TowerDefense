@@ -52,7 +52,6 @@ public class UpgradeSellUI : MonoBehaviour
 
         justSelectedTurret = true;
         target = _target;
-        transform.position = target.transform.position;
 
         ui.SetActive(true);
 
@@ -62,13 +61,13 @@ public class UpgradeSellUI : MonoBehaviour
         {
             upgradeButton.interactable = false;
             upgradeCostText.text = "X";
-            sellPriceText.text = "- $" + target.blueprint.upgradedSellPrice;
+            sellPriceText.text = "+ $" + target.blueprint.upgradedSellPrice;
         }
         else
         {
             upgradeButton.interactable = true;
             upgradeCostText.text = "- $" + target.blueprint.upgradeCost;
-            sellPriceText.text = "- $" + target.blueprint.sellPrice;
+            sellPriceText.text = "+ $" + target.blueprint.sellPrice;
         }
     }
 
@@ -106,18 +105,5 @@ public class UpgradeSellUI : MonoBehaviour
     public void DeselectTurret()
     {
         Hide();
-    }
-
-    private GameObject GetClickedGameObject()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, 1000f))
-        {
-            return hit.transform.gameObject;
-        }
-
-        return null;
     }
 }

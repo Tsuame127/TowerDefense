@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     public float scrollSpeed = 5f;
     [SerializeField]
-    public Vector3 defaultPosition = new(0f, 65f, -22f);
+    public Vector3 defaultPosition;
 
     private bool canMove = false;
 
@@ -27,8 +27,8 @@ public class CameraController : MonoBehaviour
         minX = defaultPosition.x - 20f;
         maxX = defaultPosition.x + 20f;
 
-        minY = defaultPosition.y - 30f;
-        maxY = defaultPosition.y + 10f;
+        minY = defaultPosition.y - 35f;
+        maxY = defaultPosition.y + 5f;
 
         minZ = defaultPosition.z - 20f;
         maxZ = defaultPosition.z + 20f;

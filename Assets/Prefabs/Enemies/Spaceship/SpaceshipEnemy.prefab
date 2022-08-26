@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 2703125345115643208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 7.2, z: 0}
-  m_LocalScale: {x: 1.3, y: 0.4, z: 1.3}
+  m_LocalScale: {x: 1.5, y: 0.4, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultSpeed: 35
-  health: 2000
+  health: 2500
   deathBounty: 20
   livesToRemove: 15
   deathEffect: {fileID: 3784054257569999434, guid: cabb198d583677b4bb655c96476a35d4, type: 3}
