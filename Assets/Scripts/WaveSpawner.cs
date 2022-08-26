@@ -32,7 +32,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField]
     private Text WaveCountdownTimer;
 
-    public static int waveIndex = 0;
+    public static int waveIndex;
     private bool waveFinished;
     private bool waveFinishedToSpawn = true;
 
@@ -41,7 +41,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-        waveIndex = 19;
+        waveIndex = 0;
         waves = new Wave[GameManager.maxWaves];
         InitWavesPrefab();
     }

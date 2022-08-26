@@ -61,7 +61,7 @@ public class BuildManager : MonoBehaviour
 
     public void UpgradeTurret(Turret turretToUpgrade)
     {
-        if (turretToUpgrade.blueprint.upgradeCost < PlayerStats.money)
+        if (turretToUpgrade.blueprint.upgradeCost <= PlayerStats.money)
         {
             GameObject upgradedTurret = Instantiate(turretToUpgrade.blueprint.upgradedPrefab, turretToUpgrade.transform.position, Quaternion.identity);
             upgradedTurret.GetComponent<Turret>().isUpgraded = true;

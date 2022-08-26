@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -11,6 +13,7 @@ public class UpgradeSellUI : MonoBehaviour
     public Text upgradeCostText;
     public Text sellPriceText;
     public Button upgradeButton;
+    public Button sellButton;
 
 
     private bool justSelectedTurret;
@@ -27,10 +30,22 @@ public class UpgradeSellUI : MonoBehaviour
         {
             buildManager.SelectTurretToBuild(null);
 
+
             if (Input.GetMouseButtonDown(0) && justSelectedTurret == false && !EventSystem.current.IsPointerOverGameObject())
             {
                 Hide();
             }
+
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                this.upgradeButton.onClick.Invoke();
+            }
+
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                this.sellButton.onClick.Invoke();
+            }
+
         }
 
         justSelectedTurret = false;
