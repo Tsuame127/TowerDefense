@@ -21,7 +21,6 @@ public class BuildManager : MonoBehaviour
 
     public bool IsTurretIsSelected { get { return upgradeSellUI.ui.activeSelf; } }
 
-    [SerializeField]
     public UpgradeSellUI upgradeSellUI;
     public bool CanBuild { get { return turretToBuild != null; } }
     public bool HasEnoughMoney { get { return PlayerStats.money >= turretToBuild.cost; } }

@@ -10,5 +10,6 @@ public class GameOver : MonoBehaviour
     private void OnEnable() { wavesText.text = PlayerStats.wavesFinishedCount.ToString(); }
 
     public void Retry() { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
+
     public void GoToMenu() { SceneManager.LoadScene("LevelSelect"); }
 }
