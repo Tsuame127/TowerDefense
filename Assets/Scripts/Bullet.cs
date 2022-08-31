@@ -83,6 +83,12 @@ public class Bullet : MonoBehaviour
     //Accessors
     public void SetTarget(Transform _target) { target = _target; }
 
+    public float GetSpeed()
+    {
+        return this.speed;
+    }
+
+
     //RemoveAfterRelease
     private void OnDrawGizmosSelected()
     {

@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 144726401}
   - component: {fileID: 144726400}
   - component: {fileID: 144726399}
+  - component: {fileID: 144726402}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -317,9 +318,9 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 0.20392157, g: 0.24705882, b: 0.30980393, a: 1}
     m_HighlightedColor: {r: 0.2707369, g: 0.29880145, b: 0.33962262, a: 1}
-    m_PressedColor: {r: 0.32297972, g: 0.33678952, b: 0.3584906, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_PressedColor: {r: 0.5176471, g: 0.5686275, b: 0.6313726, a: 1}
+    m_SelectedColor: {r: 0.27058825, g: 0.29803923, b: 0.34117648, a: 1}
+    m_DisabledColor: {r: 0.18307228, g: 0.19419724, b: 0.20754719, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -337,7 +338,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 144726400}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 144726402}
+        m_TargetAssemblyTypeName: BackButton, Assembly-CSharp
+        m_MethodName: GoBack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &144726400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,6 +389,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144726397}
   m_CullTransparentMesh: 1
+--- !u!114 &144726402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144726397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40f3c837306f30140853e1227705c0a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &212826924
 GameObject:
   m_ObjectHideFlags: 0

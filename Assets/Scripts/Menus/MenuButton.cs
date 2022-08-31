@@ -21,7 +21,7 @@ public class MenuButton : MonoBehaviour
 
     IEnumerator WaitBeforeAction()
     {
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.25f);
 
         switch (gameObject.name)
         {
