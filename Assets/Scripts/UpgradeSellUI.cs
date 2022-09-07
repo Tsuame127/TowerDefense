@@ -28,6 +28,12 @@ public class UpgradeSellUI : MonoBehaviour
     {
         if (ui.activeSelf)
         {
+            if (GameManager.gameIsOver)
+            {
+                this.Hide();
+                return;
+            }
+
             buildManager.SelectTurretToBuild(null);
 
 

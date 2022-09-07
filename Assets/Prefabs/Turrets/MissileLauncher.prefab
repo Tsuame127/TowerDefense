@@ -215,10 +215,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6565bd53d87836f4783e8b26766cbc0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
+  range: 7.5
   turretRangeCylinder: {fileID: 66829659}
   bulletPrefab: {fileID: 7939067134716715065, guid: ef76246406305794e8af87ff581bbc41, type: 3}
-  fireRate: 1
+  fireRate: 1.5
   UseLaser: 0
   damageOverTime: 0
   slowAmount: 0

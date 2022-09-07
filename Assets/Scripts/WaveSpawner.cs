@@ -16,9 +16,8 @@ public class WaveSpawner : MonoBehaviour
 
     [Header("General Properties")]
     [SerializeField]
-    private float timeBetweenWaves = 5f;
-    [SerializeField]
-    private float countDown = 2f;
+    private float timeBetweenWaves = 3f;
+    private float countDown;
     [SerializeField]
     GameObject standardEnemyPrefab;
     [SerializeField]
@@ -43,6 +42,8 @@ public class WaveSpawner : MonoBehaviour
     {
         waveIndex = 0;
         waves = new Wave[GameManager.maxWaves];
+        countDown = 0f;
+
         InitWavesPrefab();
     }
 

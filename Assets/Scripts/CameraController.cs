@@ -8,9 +8,9 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private float panBorderPercentage = 0.05f;
     [SerializeField]
-    public float scrollSpeed = 5f;
+    private float scrollSpeed = 5f;
     [SerializeField]
-    public Vector3 defaultPosition;
+    private Vector3 defaultPosition;
 
     private bool canMove = false;
 

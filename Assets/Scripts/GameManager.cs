@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject gameOverUI;
     [SerializeField]
-    public GameObject levelCompletedUI;
+    private GameObject levelCompletedUI;
 
 
     private void Start()
