@@ -1,20 +1,31 @@
 using System.Collections;
+using System.Net.Sockets;
 using UnityEngine;
 
 public class MenuButton : MonoBehaviour
 {
     private MainMenu mainMenu;
+
+    private float startY;
     [SerializeField]
-    private Animator animator;
+    private float hoverY = 3.5f;
+    [SerializeField]
+    private float clickedY = 2f;
+
+
+    [SerializeField]
+    private float animSpeed = 15f;
+
 
     private void Start()
     {
         mainMenu = MainMenu.instance;
+        startY = transform.position.y;
     }
 
     private void OnMouseDown()
     {
-        animator.SetTrigger("Pressed");
+        GoToZPos(clickedY);
 
         StartCoroutine(WaitBeforeAction());
     }
@@ -45,8 +56,51 @@ public class MenuButton : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        animator.SetTrigger("Hover");
+        GoToZPos(hoverY);
     }
 
-    private void OnMouseExit() { animator.SetTrigger("Exit"); }
+
+
+    private void OnMouseExit()
+    {
+        GoToZPos(startY);
+    }
+
+
+    private void GoToZPos(float targetYPos)
+    {
+        StopCoroutine("GoToZPosCour");
+
+        StartCoroutine(GoToZPosCour(targetYPos));
+
+    }
+
+
+    IEnumerator GoToZPosCour(float targetYPos)
+    {
+        Debug.Log ("CurrentPos: " + transform.position);
+        Debug.Log("\nTargetPos: "+ targetYPos);
+
+        float speed = animSpeed;
+
+        if (transform.position.y > targetYPos)
+        {
+            while (transform.position.y > targetYPos)
+            {
+                yield return new WaitForSeconds(0.005f);
+                transform.position = new Vector3(transform.position.x, transform.position.y - animSpeed, transform.position.z);
+            }
+        }
+        else
+        {
+            while (transform.position.y < targetYPos)
+            {
+                yield return new WaitForSeconds(0.005f);
+                transform.position = new Vector3(transform.position.x, transform.position.y + animSpeed, transform.position.z);
+            }
+        }
+        
+
+    }
+
 }
